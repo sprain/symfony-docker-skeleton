@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  php:
+    container_name: php-${DOCKER_APP_NAME}
+    build: docker/php
+    volumes:
+      - .:/var/www/html
+      - ./docker/apache/sites-enabled:/etc/apache2/sites-enabled
+    ports:
+      - ${DOCKER_APP_PORT}:80
